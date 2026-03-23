@@ -1,0 +1,53 @@
+# Data & model artifacts
+data/frames/
+checkpoints/
+output/
+*.pt
+*.pth
+*.ckpt
+
+# Results (keep JSONs for CI, ignore large files)
+results/*.png
+results/*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PRD / planning docs
+PRD_*.md
+
+# Editor / tool state
+.claude/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+credentials.json
+*.key
+*.pem
+
