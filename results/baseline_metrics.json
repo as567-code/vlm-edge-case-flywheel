@@ -1,0 +1,79 @@
+{
+  "accuracy": 0.5758333333333333,
+  "num_frames": 1200,
+  "per_class": {
+    "construction_zone": {
+      "precision": 0.98,
+      "recall": 0.3675,
+      "f1": 0.5345454545454545,
+      "support": 400
+    },
+    "emergency_vehicle": {
+      "precision": 0.9668508287292817,
+      "recall": 0.4375,
+      "f1": 0.6024096385542169,
+      "support": 400
+    },
+    "lane_blockage": {
+      "precision": 0.6351118760757315,
+      "recall": 0.9225,
+      "f1": 0.7522935779816514,
+      "support": 400
+    },
+    "normal": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    }
+  },
+  "confusion_matrix": [
+    [
+      147,
+      1,
+      149,
+      103
+    ],
+    [
+      1,
+      175,
+      63,
+      161
+    ],
+    [
+      2,
+      5,
+      369,
+      24
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "categories": [
+    "construction_zone",
+    "emergency_vehicle",
+    "lane_blockage",
+    "normal"
+  ],
+  "similarity_distributions": {
+    "construction_zone": {
+      "mean": 0.2796882390975952,
+      "std": 0.016871118918061256,
+      "max_correct": 0.2854481041431427
+    },
+    "emergency_vehicle": {
+      "mean": 0.27409160137176514,
+      "std": 0.017946209758520126,
+      "max_correct": 0.2805411219596863
+    },
+    "lane_blockage": {
+      "mean": 0.2894868552684784,
+      "std": 0.01267449650913477,
+      "max_correct": 0.3033752143383026
+    }
+  }
+}
