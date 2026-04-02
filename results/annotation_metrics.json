@@ -1,0 +1,10 @@
+{
+  "total_frames": 1650,
+  "auto_labeled_count": 1053,
+  "needs_review_count": 597,
+  "auto_labeled_fraction": 0.6381818181818182,
+  "auto_label_accuracy": 0.9449192782526116,
+  "annotation_reduction": 0.6381818181818182,
+  "optimal_threshold": 0.22,
+  "threshold_used": 0.25
+}
