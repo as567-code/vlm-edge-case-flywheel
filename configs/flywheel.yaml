@@ -1,0 +1,23 @@
+# Stage 5: AI Data Flywheel configuration
+#
+# Threshold rationale (CLIP cosine similarity scale):
+#   high = 0.25  →  auto-label cutoff (matches Stage 4 optimal threshold;
+#                    94.5% accuracy at 63.8% coverage on test split)
+#   low  = 0.21  →  normal-frame mean is 0.219; frames below this are
+#                    confidently routine — no annotation value
+#
+scoring:
+  high_confidence_threshold: 0.25
+  low_confidence_threshold: 0.21
+
+routing:
+  output_dir: "output"
+
+annotation:
+  manual_seconds_per_frame: 30.0
+  assisted_seconds_per_frame: 12.0
+
+auto_labeling:
+  confidence_threshold: 0.25
+  min_auto_label_accuracy: 0.95
+
