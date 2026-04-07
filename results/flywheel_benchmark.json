@@ -1,0 +1,13 @@
+{
+  "total_frames": 4200,
+  "auto_labeled": 1176,
+  "active_learning": 2567,
+  "low_confidence": 457,
+  "auto_label_fraction": 0.28,
+  "active_learning_fraction": 0.6111904761904762,
+  "low_confidence_fraction": 0.10880952380952381,
+  "manual_time_s": 126000.0,
+  "flywheel_time_s": 30835.953294992447,
+  "inference_time_s": 31.9532949924469,
+  "curation_speedup": 4.09
+}
