@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Lint with ruff
+        run: ruff check src/ scripts/ tests/
+
+      - name: Run unit tests (skip integration)
+        run: |
+          pytest tests/test_data_pipeline.py -v -k "not test_frame_files_exist and not test_dataset_loads and not test_dataset_item_shape and not test_dataloader_batch and not test_augmentations_shape and not test_mps_available"
+
+  metrics:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Verify metrics (requires results/ artifacts)
+        run: |
+          if [ -f results/baseline_metrics.json ]; then
+            python scripts/run_all_metrics.py
+          else
+            echo "Skipping metric verification (no result artifacts in CI)"
+          fi
